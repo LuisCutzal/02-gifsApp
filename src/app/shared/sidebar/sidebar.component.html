@@ -4,9 +4,11 @@
     </h3>
     <hr class="text-white"/>
     <div class="list-group list-reset">
-      <a href="#"
+      <a *ngFor="let valor of historial"
+      href="#"
       class="list-group-item list-group-item-action">
-      Dashboard
+      {{valor}}
       </a>
+      
     </div>
 </div>
