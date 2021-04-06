@@ -7,7 +7,8 @@
       <a *ngFor="let valor of historial"
       href="#"
       class="list-group-item list-group-item-action">
-      {{valor}}
+      {{valor | titlecase}}
+      <!--titecase se encarga de capitalizar las letras, ejemplo: One Punch Man-->
       </a>
       
     </div>

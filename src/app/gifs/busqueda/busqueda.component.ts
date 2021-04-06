@@ -12,6 +12,9 @@ export class BusquedaComponent {
   constructor(private gifsService:GifsService){ } //esto es inyectar los servicios para tener acceso a todas las propiedaddes del servicio 
   buscar(){
     const valor = this.txtBuscar.nativeElement.value;
+    if (valor.trim().length==0) {
+      return;
+    }
     this.gifsService.buscarGifs(valor);
     this.txtBuscar.nativeElement.value="";
   }
