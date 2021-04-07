@@ -23,6 +23,7 @@ export class GifsService {
 
     //forma 2
     this._historial=JSON.parse(localStorage.getItem("historial")!) || [];
+    this.resultados=JSON.parse(localStorage.getItem("resultados")!) || [];
 
   }
 
@@ -35,11 +36,13 @@ export class GifsService {
     this._historial=this._historial.splice(0,10); //para cortar el historial y solo sean 10 elementos que se ven
 
     localStorage.setItem("historial",JSON.stringify(this._historial));
+    
     }
     this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?api_key=QaiPXKFFAy1DF7hBiYoEuubB9ZjdsdQs&q=${terminoBusqueda}&limit=10`)
           .subscribe( (resp)=>{
             console.log(resp.data);
             this.resultados=resp.data;
+            localStorage.setItem("resultados",JSON.stringify(this.resultados));
           });
   }
 
